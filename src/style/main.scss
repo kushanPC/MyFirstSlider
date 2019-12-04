@@ -1,0 +1,37 @@
+#slider {
+	position:relative;
+	margin: 100px auto;
+	padding: 5px;
+	width: 660px;
+	height:360px;
+}
+
+#image {
+	margin:20px auto;
+	width: 600px;
+	height: 320px;
+	margin-top:20px;
+	background-color: white;
+	background-size:cover;
+	border: 2px solid black;
+	border-radius:10px;
+	background-size: 100% 100%;
+	transition:  all  .6s;
+}
+
+button {
+	position: absolute;
+	top: 150px;
+	width: 25px;
+	height: 70px;
+	font: 12pt arial,tahoma,sans-serif;
+	text-align: center;
+}
+
+.btn-left {
+	left:5px;
+}
+
+.btn-right {
+	right:5px;
+}
