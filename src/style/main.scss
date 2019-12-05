@@ -1,8 +1,11 @@
+@import 'template/colors.scss';
+
 body {
 	margin: 0;
 	padding: 0;
-	background: #eaeaea;
+	background-color: $grey;
 }
+
 #slider {
 	position:relative;
 	margin: 100px auto;
@@ -41,6 +44,7 @@ button {
 .btn-right {
 	right:5px;
 }
+
 #pagination {
 	margin: auto;
 	height: 100px;
@@ -49,18 +53,19 @@ button {
 	display: flex;
 
 }
+
 .dot {
 	width: 10px;
 	height: 10px;
-	background-color: #eaeaea;
+	background-color: $grey;
 	box-shadow: inset 0px 2px 3px rgba(0,0,0,0.4);
 	border-radius: 50%;
 	margin: 5px;
 	cursor: pointer;
 }
-.dot-active {
-	background-color: #ff8f35;
+
+.active {
+	background-color: $orange;
 	box-shadow: none;
 	transition:all linear .45s;
-
 }
