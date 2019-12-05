@@ -1,6 +1,12 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #eaeaea;
+}
 #slider {
 	position:relative;
 	margin: 100px auto;
+	margin-bottom: 0;
 	padding: 5px;
 	width: 660px;
 	height:360px;
@@ -34,4 +40,27 @@ button {
 
 .btn-right {
 	right:5px;
+}
+#pagination {
+	margin: auto;
+	height: 100px;
+	width: 550px;
+	justify-content: center;
+	display: flex;
+
+}
+.dot {
+	width: 10px;
+	height: 10px;
+	background-color: #eaeaea;
+	box-shadow: inset 0px 2px 3px rgba(0,0,0,0.4);
+	border-radius: 50%;
+	margin: 5px;
+	cursor: pointer;
+}
+.dot-active {
+	background-color: #ff8f35;
+	box-shadow: none;
+	transition:all linear .45s;
+
 }

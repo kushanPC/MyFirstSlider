@@ -17,7 +17,6 @@ const rimraf = require('rimraf');
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 
-
 const path = {
     build: { //куда выплюнуть
         html: 'build/',
