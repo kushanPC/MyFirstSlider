@@ -1,46 +1,53 @@
 "use strict";
 import dataSlides from './data.js';
 
-let currentImg = 0;
+let currentSlide = 0;
 let div;
 
 const slide = document.getElementById('image');
 const pagination = document.getElementById('pagination');
-const prevSlide =  document.getElementsByClassName('btn-left');
-const nextSlide =  document.getElementsByClassName('btn-right');
-const dotArray =  document.getElementsByClassName("dot");
+const prevSlide =  document.querySelector('.btn-left');
+const nextSlide =  document.querySelector('.btn-right');
+const dotArray =  document.getElementsByClassName('dot');
+
+const buttonDropdown = document.querySelector('.btn-dropdown');
+let dropdown = document.querySelector('.dropdown');
 
 function slider(image) {
   slide.style.backgroundImage = `url(${dataSlides.slides[image]})`;
 
-  for (let image = 0; image < dotArray.length; image++) {
-    dotArray[image].className = 'dot';
+  for (let i = 0; i < dotArray.length; i++) {
+    dotArray[i].className = 'dot';
   }
 
-  currentImg = image;
+  currentSlide = image;
 
   dotArray[image].className = 'dot active';
 }
 
-prevSlide[0].addEventListener("click", function(){
-	currentImg-=1;
-  if (currentImg < 0) {
-    currentImg = dataSlides.slides.length - 1;
-  }
-	slider(currentImg);
-},false);
+function onClickNextSlide(){
+ currentSlide += 1;
+ if (currentSlide === dataSlides.slides.length) {
+   currentSlide = 0;
+ }
+ slider(currentSlide);
+}
 
-nextSlide[0].addEventListener("click", function(){
-	currentImg+=1;
-  if (currentImg === dataSlides.slides.length) {
-    currentImg = 0;
+function onClickPreviousSlide() {
+  currentSlide -= 1;
+  if (currentSlide < 0) {
+    currentSlide = dataSlides.slides.length - 1;
   }
-	slider(currentImg);
-},false);
+  slider(currentSlide);
+}
+
+prevSlide.addEventListener('click', onClickPreviousSlide);
+
+nextSlide.addEventListener('click', onClickNextSlide);
 
 dataSlides.slides.forEach(function() {
   div = document.createElement('div');
-  div.className = "dot";
+  div.className = 'dot';
   pagination.append(div);
 });
 
@@ -52,6 +59,20 @@ for (let i = 0; i < dotArray.length; i++) {
   };
 }
 
-window.onload = function() {
-	slider(currentImg);
+function drop() {
+  if (dropdown.className == 'dropdown'){
+   dropdown.className = 'dropdown show';
+  }
+  else {
+     dropdown.className = 'dropdown';
+  }
 }
+
+buttonDropdown.addEventListener('click', drop);
+
+window.onload = function() {
+	slider(currentSlide);
+  setInterval(function() {
+		onClickNextSlide();
+	},8000);
+};

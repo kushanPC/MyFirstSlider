@@ -1,0 +1,11 @@
+
+<button class="btn-dropdown" type="button">Dropdown</button>
+
+<ul class="dropdown">
+	{% for item in dropdown.description %}
+		<li class={{dropdown.class}}>
+			{{item}}
+		</li>
+	{% endfor %}
+
+</ul>
