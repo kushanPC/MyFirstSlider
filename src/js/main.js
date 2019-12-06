@@ -9,6 +9,8 @@ const pagination = document.getElementById('pagination');
 const prevSlide =  document.querySelector('.btn-left');
 const nextSlide =  document.querySelector('.btn-right');
 const dotArray =  document.getElementsByClassName('dot');
+const dropItems =   document.getElementsByClassName('item');
+
 
 const buttonDropdown = document.querySelector('.btn-dropdown');
 let dropdown = document.querySelector('.dropdown');
@@ -65,10 +67,18 @@ function drop() {
   }
   else {
      dropdown.className = 'dropdown';
+     buttonDropdown.textContent = `Dropdown`;
   }
 }
 
 buttonDropdown.addEventListener('click', drop);
+
+for (var i = 0; i < dropItems.length; i++) {
+  dropItems[i].addEventListener('click', function() {
+    let num = i;
+    buttonDropdown.textContent = `${this.textContent}`;
+  });
+}
 
 window.onload = function() {
 	slider(currentSlide);
