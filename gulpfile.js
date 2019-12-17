@@ -50,9 +50,9 @@ const config = {
     server: {
         baseDir: './build'
     },
-    tunnel: true,
+    tunnel: false,
     host: 'localhost',
-    port: 9000,
+    port: 8080,
     logPrefix: 'Frontend_Devil'
 };
 
@@ -118,9 +118,6 @@ gulp.task('nunjucks', function() {
     return require('./src/data.json')
   }))
   .pipe(njkRender())
-  .pipe(prettify({
-    indent_size : 4
-  }))
   .pipe(gulp.dest(path.build.njk))
   .pipe(reload({stream: true}))
 });

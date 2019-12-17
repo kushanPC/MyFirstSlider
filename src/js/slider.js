@@ -9,11 +9,11 @@ const pagination = document.getElementById('pagination');
 const prevSlide =  document.querySelector('.btn-left');
 const nextSlide =  document.querySelector('.btn-right');
 const dotArray =  document.getElementsByClassName('dot');
-const dropItems =   document.getElementsByClassName('item');
 
-
-const buttonDropdown = document.querySelector('.btn-dropdown');
-let dropdown = document.querySelector('.dropdown');
+let timerId =
+  setTimeout(function() {
+    onClickNextSlide();
+  },8000);
 
 function slider(image) {
   slide.style.backgroundImage = `url(${dataSlides.slides[image]})`;
@@ -33,6 +33,13 @@ function onClickNextSlide(){
    currentSlide = 0;
  }
  slider(currentSlide);
+
+
+ clearTimeout(timerId);
+ timerId =
+   setTimeout(function() {
+     onClickNextSlide();
+   },8000);
 }
 
 function onClickPreviousSlide() {
@@ -43,46 +50,34 @@ function onClickPreviousSlide() {
   slider(currentSlide);
 }
 
+function onclickPagination() {
+  let dot = event.target;
+
+  if (dot.className != 'dot') {
+    return;
+  }
+
+  for (let i = 0; i < dotArray.length; i++) {
+    dotArray[i].className = 'dot';
+  }
+
+  slider(Number(dot.dataset.indexNumber));
+  dot.className = 'dot active';
+}
+
 prevSlide.addEventListener('click', onClickPreviousSlide);
 
 nextSlide.addEventListener('click', onClickNextSlide);
 
-dataSlides.slides.forEach(function() {
+pagination.addEventListener('click', onclickPagination);
+
+dataSlides.slides.forEach(function(item, i, arr) {
   div = document.createElement('div');
+  div.dataset.indexNumber = i;
   div.className = 'dot';
   pagination.append(div);
 });
 
-for (let i = 0; i < dotArray.length; i++) {
-  dotArray[i].onclick = function() {
-    let num = i;
-    slider(num);
-    this.className = 'dot active';
-  };
-}
-
-function drop() {
-  if (dropdown.className == 'dropdown'){
-   dropdown.className = 'dropdown show';
-  }
-  else {
-     dropdown.className = 'dropdown';
-     buttonDropdown.textContent = `Dropdown`;
-  }
-}
-
-buttonDropdown.addEventListener('click', drop);
-
-for (var i = 0; i < dropItems.length; i++) {
-  dropItems[i].addEventListener('click', function() {
-    let num = i;
-    buttonDropdown.textContent = `${this.textContent}`;
-  });
-}
-
 window.onload = function() {
 	slider(currentSlide);
-  setInterval(function() {
-		onClickNextSlide();
-	},8000);
 };

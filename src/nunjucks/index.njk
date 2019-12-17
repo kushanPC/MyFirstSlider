@@ -8,18 +8,11 @@
 </head>
 
 <body>
+  {% include "src/nunjucks/template/slider.njk" %}
+	{% include "src/nunjucks/template/dropdown.njk" %}
 
-    <div id="slider">
-      <button class="btn-left"><</button>
-       <div id="image"></div>
-      <button class="btn-right">></button>
-    </div>
-
-    <div id="pagination"></div>
-
-		{% include "src/nunjucks/template/dropdown.njk" %}
-
-    <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/slider.js"></script>
+  <script src="js/dropdown.js"></script>
 </body>
 
 </html>
