@@ -16,26 +16,27 @@
 	background-color: #2d7abd;
 	cursor: pointer;
 	z-index: 1;
+
 	&:active,
 	&:focus {
-    outline: none;
+		outline: none;
 	}
 }
 
 .dropdown {
 	padding: 0;
-	height: 0px;
+	height: 0;
 	overflow-y: scroll;
 	line-height: 50px;
 	list-style: none;
-	transition: height .5s linear;
-	&::-webkit-scrollbar { width: 5px; height: 5px;}
-	&::-webkit-scrollbar-button {  background-color: #fff;  height: 0;}
-	&::-webkit-scrollbar-track {  background-color: #999;}
-	&::-webkit-scrollbar-track-piece { background-color: #ffffff;}
-	&::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
-	&::-webkit-scrollbar-corner { background-color: #999;}
-	&::-webkit-resizer { background-color: #666;}
+	transition: height 0.5s linear;
+	&::-webkit-scrollbar { width: 5px; height: 5px; }
+	&::-webkit-scrollbar-button { background-color: #fff; height: 0; }
+	&::-webkit-scrollbar-track { background-color: #999; }
+	&::-webkit-scrollbar-track-piece { background-color: #fff; }
+	&::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px; }
+	&::-webkit-scrollbar-corner { background-color: #999; }
+	&::-webkit-resizer { background-color: #666; }
 }
 
 .show {
@@ -49,8 +50,9 @@ ul li {
 	border-radius: 5px;
 	position: relative;
 	background-color: rgba(0, 0, 0, 0.3);
-	transition: all .5s ease;
+	transition: all 0.5s ease;
 	cursor: pointer;
+
 	&:hover {
 		border: 1px solid  black;
 	}
@@ -66,7 +68,7 @@ ul li {
 
 	&:active,
 	&:focus {
-    outline: none;
+		outline: none;
 	}
 }
 
@@ -74,7 +76,7 @@ ul li {
 	background: #fff;
 }
 
-ul li .country-name{
+ul li .country-name {
 	margin-left: 25px;
 }
 
