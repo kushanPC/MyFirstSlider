@@ -2,10 +2,8 @@
 const gulp = require('gulp');
 const njkRender = require('gulp-nunjucks-render');
 const data = require('gulp-data');
-const prettify = require('gulp-html-beautify');
 const watch = require('gulp-watch');
 const prefixer = require('gulp-autoprefixer');
-const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const rigger = require('gulp-rigger');
@@ -17,6 +15,7 @@ const browserSync = require('browser-sync');
 
 const { reload } = browserSync;
 
+const njkData = require('./src/data.json');
 
 const path = {
   build: { // куда выплюнуть
@@ -112,7 +111,7 @@ gulp.task('fonts:build', () => {
 
 gulp.task('nunjucks', () => gulp.src(path.src.njk)
   // Adding data to Nunjucks
-  .pipe(data(() => require('./src/data.json')))
+  .pipe(data(() => njkData))
   .pipe(njkRender())
   .pipe(gulp.dest(path.build.njk))
   .pipe(reload({ stream: true })));
@@ -130,20 +129,20 @@ gulp.task('build', [
 
 
 gulp.task('watch', () => {
-  watch([path.watch.html], (event, cb) => {
+  watch([path.watch.html], () => {
     gulp.start('html:build');
     gulp.start('nunjucks');
   });
-  watch([path.watch.style], (event, cb) => {
+  watch([path.watch.style], () => {
     gulp.start('style:build');
   });
-  watch([path.watch.js], (event, cb) => {
+  watch([path.watch.js], () => {
     gulp.start('js:build');
   });
-  watch([path.watch.img], (event, cb) => {
+  watch([path.watch.img], () => {
     gulp.start('image:build');
   });
-  watch([path.watch.fonts], (event, cb) => {
+  watch([path.watch.fonts], () => {
     gulp.start('fonts:build');
   });
   gulp.watch([path.watch.njk], ['nunjucks']);

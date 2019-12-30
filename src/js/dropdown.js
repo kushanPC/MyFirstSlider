@@ -74,7 +74,7 @@ function clickToCheckAll(liTage) {
   }
 }
 
-function clickToList() {
+function clickToList(event) {
   const item = event.target;
   if (item.dataset.target !== 'target') {
     return;

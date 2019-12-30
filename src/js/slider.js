@@ -1,7 +1,6 @@
 import dataSlides from './data.js';
 
 let currentSlide = 0;
-let div;
 
 const slide = document.getElementById('image');
 const pagination = document.getElementById('pagination');
@@ -9,11 +8,8 @@ const prevSlide = document.querySelector('.btn-left');
 const nextSlide = document.querySelector('.btn-right');
 const dotArray = document.getElementsByClassName('dot');
 
-let timerId =
-  setTimeout(() => {
-    onClickNextSlide();
-  }, 8000);
-
+let div;
+let timerId;
 
 function slider(image) {
   slide.style.backgroundImage = `url(${dataSlides.slides[image]})`;
@@ -28,6 +24,12 @@ function slider(image) {
 }
 
 function onClickNextSlide() {
+  clearTimeout(timerId);
+
+  timerId = setTimeout(() => {
+    onClickNextSlide();
+  }, 8000);
+
   currentSlide += 1;
   if (currentSlide === dataSlides.slides.length) {
     currentSlide = 0;
@@ -37,6 +39,7 @@ function onClickNextSlide() {
   clearTimeout(timerId);
   timerId = setTimeout(onClickNextSlide, 8000);
 }
+
 function onClickPreviousSlide() {
   currentSlide -= 1;
   if (currentSlide < 0) {
@@ -45,7 +48,7 @@ function onClickPreviousSlide() {
   slider(currentSlide);
 }
 
-function onclickPagination() {
+function onclickPagination(event) {
   const dot = event.target;
 
   if (dot.className !== 'dot') {
@@ -76,3 +79,5 @@ dataSlides.slides.forEach((item, i) => {
 window.onload = function startSlider() {
   slider(currentSlide);
 };
+
+onClickNextSlide();

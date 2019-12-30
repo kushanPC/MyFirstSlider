@@ -40,13 +40,20 @@
     "husky": "^3.1.0",
     "imagemin-pngquant": "^8.0.0",
     "json-loader": "^0.5.7",
+    "lint-staged": "^10.0.0-beta.14",
     "rimraf": "^3.0.0",
     "stylelint": "^12.0.0",
     "stylelint-config-standard": "^19.0.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "gulp build"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "src/js/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }

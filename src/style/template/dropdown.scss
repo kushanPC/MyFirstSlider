@@ -30,12 +30,29 @@
 	line-height: 50px;
 	list-style: none;
 	transition: height 0.5s linear;
-	&::-webkit-scrollbar { width: 5px; height: 5px; }
-	&::-webkit-scrollbar-button { background-color: #fff; height: 0; }
+
+	&::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+	}
+
+	&::-webkit-scrollbar-button {
+		background-color: #fff;
+		height: 0;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		height: 50px;
+		background-color: #666;
+		border-radius: 3px;
+	}
+
 	&::-webkit-scrollbar-track { background-color: #999; }
+
 	&::-webkit-scrollbar-track-piece { background-color: #fff; }
-	&::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px; }
+
 	&::-webkit-scrollbar-corner { background-color: #999; }
+
 	&::-webkit-resizer { background-color: #666; }
 }
 
