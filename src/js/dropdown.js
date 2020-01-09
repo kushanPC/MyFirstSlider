@@ -28,7 +28,7 @@ function generateButtonText() {
     }
   }
 
-  if (Boolean(buttonText) === false) {
+  if (buttonText.length === 0) {
     buttonText = 'Dropdown';
   }
   return buttonText;
@@ -74,7 +74,7 @@ function clickToCheckAll(liTage) {
   }
 }
 
-function clickToList(event) {
+function onClickList(event) {
   const item = event.target;
   if (item.dataset.target !== 'target') {
     return;
@@ -90,7 +90,7 @@ function clickToList(event) {
 }
 
 
-function clickToDropdownButton() {
+function onClickDropdownButton() {
   if (dropdownList.className === 'dropdown') {
     dropdownList.classList = 'dropdown show';
 
@@ -106,8 +106,8 @@ function clickToDropdownButton() {
 function markText(string, pos, len) {
   return `${string.slice(0, pos)}<mark>${string.slice(pos, pos + len)}</mark>${string.slice(pos + len)}`;
 }
-buttonDropdown.addEventListener('click', clickToDropdownButton);
-dropdownList.addEventListener('click', clickToList);
+buttonDropdown.addEventListener('click', onClickDropdownButton);
+dropdownList.addEventListener('click', onClickList);
 document.querySelector('#text-to-find').addEventListener('input', function findItem() {
   const expression = this.value.trim();
   const val = new RegExp(expression, 'i');
