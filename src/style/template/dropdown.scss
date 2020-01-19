@@ -1,0 +1,113 @@
+.conteiner-to-dropdown {
+	margin: auto;
+	height: 300px;
+	width: 230px;
+	position: relative;
+}
+
+.btn-dropdown {
+	top: 0;
+	left: 0;
+	width: 230px;
+	height: 60px;
+	border: 1px solid black;
+	border-radius: 15px;
+	display: block;
+	background-color: #2d7abd;
+	cursor: pointer;
+	z-index: 1;
+
+	&:active,
+	&:focus {
+		outline: none;
+	}
+}
+
+.dropdown {
+	padding: 0;
+	height: 0;
+	overflow-y: scroll;
+	line-height: 50px;
+	list-style: none;
+	transition: height 0.5s linear;
+
+	&::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+	}
+
+	&::-webkit-scrollbar-button {
+		background-color: #fff;
+		height: 0;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		height: 50px;
+		background-color: #666;
+		border-radius: 3px;
+	}
+
+	&::-webkit-scrollbar-track { background-color: #999; }
+
+	&::-webkit-scrollbar-track-piece { background-color: #fff; }
+
+	&::-webkit-scrollbar-corner { background-color: #999; }
+
+	&::-webkit-resizer { background-color: #666; }
+}
+
+.show {
+	height: 100%;
+}
+
+ul li {
+	margin: 1px;
+	height: 55px;
+	border: 1px solid  #eaeaea;
+	border-radius: 5px;
+	position: relative;
+	background-color: rgba(0, 0, 0, 0.3);
+	transition: all 0.5s ease;
+	cursor: pointer;
+
+	&:hover {
+		border: 1px solid  black;
+	}
+}
+
+#text-to-find {
+	margin-bottom: 15px;
+	width: 80%;
+	height: 15px;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+
+	&:active,
+	&:focus {
+		outline: none;
+	}
+}
+
+.selected {
+	background: #fff;
+}
+
+ul li .country-name {
+	margin-left: 25px;
+}
+
+.hide {
+	display: none;
+}
+
+.checkbox {
+	right: 30px;
+	top: 30%;
+	position: absolute;
+}
+
+.checked-all {
+	margin-left: 10px;
+	text-transform: uppercase;
+}

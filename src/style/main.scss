@@ -1,0 +1,9 @@
+@import 'template/colors.scss';
+@import 'template/slider.scss';
+@import 'template/dropdown.scss';
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: $grey;
+}

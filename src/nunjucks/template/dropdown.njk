@@ -1,0 +1,21 @@
+<div class="conteiner-to-dropdown">
+
+<button class="btn-dropdown" type="button"><span>Dropdown</span></button>
+
+<ul class="dropdown">
+
+	      <input class="place_for_search" type="text" id="text-to-find" value="">
+
+	<li class="checked" data-target="target">
+		<span class="checked-all" data-target="target">checked all</span>
+	<input type="checkbox" class="checkbox-select-all" data-target="target">
+	</li>
+	{% for item in dropdown.description %}
+		<li class="item position" data-target="target">
+			<span class="country-name" data-target="target">{{item}}</span>
+			<input type="checkbox" class="checkbox" data-target="target">
+		</li>
+	{% endfor %}
+</ul>
+
+</div>
